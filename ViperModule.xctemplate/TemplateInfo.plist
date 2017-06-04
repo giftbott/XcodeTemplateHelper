@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowedTypes</key>
+	<array>
+		<string>public.swift-source</string>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>DefaultCompletionName</key>
+	<string>ViperModule</string>
+	<key>Description</key>
+	<string>Basic VIPER template. Creates View, Interactor, Presenter, Wireframe, Datamanager with protocols.</string>
+	<key>Kind</key>
+	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___</string>
+	<key>SortOrder</key>
+	<integer>90</integer>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>Name of the module to create</string>
+			<key>Identifier</key>
+			<string>viperModuleName</string>
+			<key>Name</key>
+			<string>Module name</string>
+			<key>Default</key>
+			<string></string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+			<key>Placeholder</key>
+			<string>Input Module Name</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>Viper module type</string>
+			<key>Identifier</key>
+			<string>moduleType</string>
+			<key>Name</key>
+			<string>Module Type</string>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Values</key>
+			<array>
+				<string>Basic</string>
+				<string>with Interactor</string>
+			</array>
+			<key>Default</key>
+			<string>with Interactor</string>
+			<key>Required</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>_DataManager</string>
+			<key>Name</key>
+			<string>Use DataManager File</string>
+			<key>Description</key>
+			<string>Whether to use a Datamanager File with the same name</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>false</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>moduleType</key>
+				<string>with Interactor</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>_UnitTest</string>
+			<key>Name</key>
+			<string>Include Unit Tests</string>
+			<key>Description</key>
+			<string>Whether to include Unit Test files</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>true</string>
+			<key>NotPersisted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_viperModuleName___</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Template Author</key>
+	<string>giftbott</string>
+	<key>Summary</key>
+	<string>This generates a new module using Viper architecture.</string>
+</dict>
+</plist>
