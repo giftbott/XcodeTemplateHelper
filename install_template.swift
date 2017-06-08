@@ -122,7 +122,7 @@ func installTemplate(_ templateName: String) {
   
   
   let filePath = directoryPath.appending("/\(templateName)")
-  let _ = bash(command: "mkdir", arguments: ["-p", directoryPath])
+  _ = bash(command: "mkdir", arguments: ["-p", directoryPath])
   
   copyTemplate(from: templateName, to: filePath)
 }
@@ -207,13 +207,24 @@ func getBaseTemplate(type: TemplateType) {
     let templateName = "Swift File.xctemplate"
     let newPath = "./BaseFileTemplate.xctemplate"
     copyTemplate(from: originPath + templateName, to: newPath)
+    changeOwner(of: newPath)
   case .project:
     printInConsole("Copying Project Template")
     let originPath = xcodeBasePath + "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application/"
     let templateName = "Single View Application.xctemplate"
     let newPath = "./BaseProjectTemplate.xctemplate"
     copyTemplate(from: originPath + templateName, to: newPath)
+    changeOwner(of: newPath)
   }
+}
+
+///Need to change owner after using sudo command, root -> Current User
+func changeOwner(of path: String) {
+  let result = bash(command: "who", arguments: ["am", "i"])
+  let userName = result.components(separatedBy: " ").first!
+
+  print(userName)
+  _ = bash(command: "chown", arguments: [userName, path])
 }
 
 
