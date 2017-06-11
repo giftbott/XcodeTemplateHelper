@@ -63,9 +63,9 @@
 			<key>Identifier</key>
 			<string>_DataManager</string>
 			<key>Name</key>
-			<string>Use DataManager File</string>
+			<string>Include DataManager</string>
 			<key>Description</key>
-			<string>Whether to use a Datamanager File with the same name</string>
+			<string>Whether to use a Datamanager File</string>
 			<key>Type</key>
 			<string>checkbox</string>
 			<key>Default</key>
