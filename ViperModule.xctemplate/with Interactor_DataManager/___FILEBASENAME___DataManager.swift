@@ -8,7 +8,12 @@
 
 import Foundation
 
-class ___FILEBASENAMEASIDENTIFIER___DataManager: ___FILEBASENAMEASIDENTIFIER___DataManagerInputProtocol {
-  weak var requestHandler: ___FILEBASENAMEASIDENTIFIER___DataManagerOutputProtocol?
+final class ___FILEBASENAMEASIDENTIFIER___DataManager {
+  weak var requestHandler: ___FILEBASENAMEASIDENTIFIER___DataManagerOutputProtocol!
 
+}
+
+//MARK: DataManagerInputProtocol
+extension ___FILEBASENAMEASIDENTIFIER___DataManager: ___FILEBASENAMEASIDENTIFIER___DataManagerInputProtocol {
+  
 }

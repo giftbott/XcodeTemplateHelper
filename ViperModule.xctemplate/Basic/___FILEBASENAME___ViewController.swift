@@ -8,19 +8,8 @@
 
 import UIKit
 
-class ___FILEBASENAMEASIDENTIFIER___ViewController: UIViewController {
-  // Default
-  let presenter: ___FILEBASENAMEASIDENTIFIER___PresenterProtocol
-
-  init(presenter: ___FILEBASENAMEASIDENTIFIER___PresenterProtocol) {
-    self.presenter = presenter
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
+final class ___FILEBASENAMEASIDENTIFIER___ViewController: UIViewController {
+  var presenter: ___FILEBASENAMEASIDENTIFIER___PresenterProtocol!
 
   // View LifeCycle
   override func viewDidLoad() {
@@ -29,6 +18,7 @@ class ___FILEBASENAMEASIDENTIFIER___ViewController: UIViewController {
   }
 }
 
+//MARK: ViewProtocol
 extension ___FILEBASENAMEASIDENTIFIER___ViewController: ___FILEBASENAMEASIDENTIFIER___ViewProtocol {
 
 }

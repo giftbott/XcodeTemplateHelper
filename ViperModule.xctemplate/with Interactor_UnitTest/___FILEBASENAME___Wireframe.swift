@@ -8,18 +8,23 @@
 
 import UIKit
 
-class ___FILEBASENAMEASIDENTIFIER___Wireframe: ___FILEBASENAMEASIDENTIFIER___WireframeProtocol {
-  weak var view: UIViewController?
-    
-  static func createModule() -> UIViewController {
+final class ___FILEBASENAMEASIDENTIFIER___Wireframe {
+  weak var view: ___FILEBASENAMEASIDENTIFIER___ViewController!
+  
+  static func createModule() -> ___FILEBASENAMEASIDENTIFIER___ViewController {
+    let view = ___FILEBASENAMEASIDENTIFIER___ViewController()
     let wireframe = ___FILEBASENAMEASIDENTIFIER___Wireframe()
     let interactor = ___FILEBASENAMEASIDENTIFIER___Interactor()
-    let presenter = ___FILEBASENAMEASIDENTIFIER___Presenter(wireframe: wireframe, interactor: interactor)
-    let view = ___FILEBASENAMEASIDENTIFIER___ViewController(presenter: presenter)
-        
-    presenter.view = view
+    let presenter = ___FILEBASENAMEASIDENTIFIER___Presenter(view: view, wireframe: wireframe, interactor: interactor)
+    
+    view.presenter = presenter
+    wireframe.view = view
     interactor.presenter = presenter
-        
+    
     return view
   }
+}
+
+//MARK: WireframeProtocol
+extension ___FILEBASENAMEASIDENTIFIER___Wireframe: ___FILEBASENAMEASIDENTIFIER___WireframeProtocol {
 }

@@ -11,7 +11,7 @@ import Nimble
 @testable import ___PROJECTNAME___
 
 
-class ___FILEBASENAMEASIDENTIFIER___PresenterTests: QuickSpec {
+final class ___FILEBASENAMEASIDENTIFIER___PresenterTests: QuickSpec {
   override func spec() {
 
   }

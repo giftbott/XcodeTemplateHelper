@@ -17,7 +17,7 @@
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>MainTemplateFile</key>
-	<string>___FILEBASENAME___</string>
+	<string>___FILEBASENAME___.swift</string>
 	<key>SortOrder</key>
 	<integer>90</integer>
 	<key>Options</key>
@@ -30,13 +30,15 @@
 			<key>Name</key>
 			<string>Module name</string>
 			<key>Default</key>
-			<string></string>
-			<key>Required</key>
-			<true/>
+			<string>ModuleName</string>
 			<key>Type</key>
 			<string>text</string>
 			<key>Placeholder</key>
 			<string>Input Module Name</string>
+			<key>Required</key>
+			<true/>
+			<key>NotPersisted</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Description</key>
@@ -53,7 +55,7 @@
 				<string>with Interactor</string>
 			</array>
 			<key>Default</key>
-			<string>with Interactor</string>
+			<string>Basic</string>
 			<key>Required</key>
 			<true/>
 		</dict>
@@ -86,7 +88,7 @@
 			<key>Type</key>
 			<string>checkbox</string>
 			<key>Default</key>
-			<string>true</string>
+			<string>false</string>
 			<key>NotPersisted</key>
 			<true/>
 		</dict>

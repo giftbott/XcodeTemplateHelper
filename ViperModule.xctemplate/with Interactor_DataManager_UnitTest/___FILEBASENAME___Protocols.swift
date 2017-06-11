@@ -17,7 +17,7 @@ protocol ___FILEBASENAMEASIDENTIFIER___ViewProtocol: class {
 
 //MARK: Wireframe
 protocol ___FILEBASENAMEASIDENTIFIER___WireframeProtocol: class {
-
+ 
   // Presenter -> Wireframe
 }
 
@@ -37,6 +37,7 @@ protocol ___FILEBASENAMEASIDENTIFIER___InteractorInputProtocol: class {
 }
 
 protocol ___FILEBASENAMEASIDENTIFIER___InteractorOutputProtocol: class {
+  
   // Interactor -> Presenter
 }
 

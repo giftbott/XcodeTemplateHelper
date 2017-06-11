@@ -24,7 +24,7 @@ protocol ___FILEBASENAMEASIDENTIFIER___WireframeProtocol: class {
 
 //MARK: Presenter
 protocol ___FILEBASENAMEASIDENTIFIER___PresenterProtocol: class {
-
+  
   // View -> Presenter
   func onViewDidLoad()
 }
