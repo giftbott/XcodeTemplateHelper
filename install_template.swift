@@ -6,12 +6,11 @@
 //  Copyright © 2017 giftbott. All rights reserved.
 //
 
-
 import Foundation
 
-//==========================
-//MARK: - Bash Shell Command
-//==========================
+// ==========================
+// MARK: - Bash Shell Command
+// ==========================
 func bash(command: String, arguments: [String]) -> String {
   let commandPath = shell(launchPath: "/bin/bash", arguments: ["-c", "which \(command)" ])
   return shell(launchPath: commandPath, arguments: arguments)
@@ -32,10 +31,9 @@ func shell(launchPath: String, arguments: [String]) -> String {
   return output.trimmingCharacters(in: .newlines)
 }
 
-
-//========================
-//MARK: - Install template
-//========================
+// ========================
+// MARK: - Install template
+// ========================
 
 // UserName (currentUserName could be root)
 let sessionUserName = bash(command: "who", arguments: ["am", "i"]).components(separatedBy: " ").first!
@@ -43,20 +41,19 @@ let currentUserName = bash(command: "whoami", arguments: [])
 
 let fileManager = FileManager.default
 
-
 /// Should select template only if more than one
 func setup() {
   let templateChecker = try? fileManager
     .contentsOfDirectory(atPath: ".")
     .filter { $0.hasSuffix(".xctemplate") }
   
-  guard let templates = templateChecker, templates.count > 0 else {
-    printInConsole("xctemplate directory does not exist")
+  guard let templates = templateChecker, !templates.isEmpty else {
+    printProcess("xctemplate directory does not exist")
     return
   }
   
   guard templates.count > 1 else {
-    installTemplate(templates[0])
+    install(template: templates[0])
     return
   }
   
@@ -74,26 +71,18 @@ func setup() {
       continue
     }
     
-    let templateName = templates[num-1]
-    printInConsole("\(templateName) is selected\n")
+    let templateName = templates[num - 1]
+    printProcess("\(templateName) is selected\n")
     
-    installTemplate(templateName)
+    install(template: templateName)
     break
   }
 }
 
-
 /// Copy template to selected target path
-func installTemplate(_ templateName: String) {
-  
-  // Print Target Directory Path
-  print("Select Directory Path to Install Template")
-  print(String(repeating: "#", count:40))
-  print("1: Custom File Template")
-  print("2: Custom Project Template")
-  print("3: Xcode File Template (admin only)")
-  print("4: Xcode Project Template (admin only)")
-  print(String(repeating: "#", count:40), terminator: "\n\n")
+func install(template templateName: String) {
+  // Print Choiceable Target Directory Path
+  printPathOptions()
   
   // Select Target Base Path
   let userHomeDirectory = "/Users/".appending(sessionUserName)
@@ -103,6 +92,7 @@ func installTemplate(_ templateName: String) {
   var basePath = userHomeDirectory
   var pathEndPoint = PathEndPoint.customFileTemplate.rawValue
   
+  // 
   while true {
     print("Select Target Path Number : ", terminator: "")
     let input = readLine() ?? "1"
@@ -138,7 +128,7 @@ func installTemplate(_ templateName: String) {
   }
   
   let directoryPath = basePath.appending(pathEndPoint)
-  printInConsole("Template will be installed at \(directoryPath)")
+  printProcess("Template will be installed at \(directoryPath)")
   _ = bash(command: "mkdir", arguments: ["-p", directoryPath])
   
   let fullPath = directoryPath.appending("/\(templateName)")
@@ -155,41 +145,42 @@ func installTemplate(_ templateName: String) {
   }
 }
 
-
 /// Try copy
 func copyTemplate(from: String, to: String) -> Bool {
   do {
-    printInConsole(".....")
+    printProcess(".....")
     defer { print() }
     
-    if !fileManager.fileExists(atPath: to){
+    if !fileManager.fileExists(atPath: to) {
       try fileManager.copyItem(atPath: from, toPath: to)
       
-      printInConsole("Template installed succesfully.")
-      
-    }
-    else{
+      printProcess("Template installed succesfully.")
+    } else {
       try _ = fileManager.removeItem(atPath: to)
       try fileManager.copyItem(atPath: from, toPath: to)
       
-      printInConsole("Template has been replaced succesfully.")
+      printProcess("Template has been replaced succesfully.")
     }
 
     return true
-  }
-  catch let error as NSError {
-    printInConsole("Ooops! Something went wrong: \(error.localizedFailureReason!)")
+  } catch let error as NSError {
+    printProcess("Ooops! Something went wrong: \(error.localizedFailureReason!)")
     return false
   }
 }
 
-//MARK: - GetBaseTemplate
+// MARK: - GetBaseTemplate
+enum TemplateType {
+  case file
+  case project
+}
+
 /// Copy from Xcode Template (File: Swift, Project: Single View Application)
 func getBaseTemplate(type: TemplateType) {
   let xcodeBasePath = bash(command: "xcode-select", arguments: ["--print-path"])
   switch type {
   case .file:
-    printInConsole("Copying File Template")
+    printProcess("Now Copy File Template")
     let originPath = xcodeBasePath + "/Library/Xcode/Templates/File Templates/Source/"
     let templateName = "Swift File.xctemplate"
     let newPath = "./BaseFileTemplate.xctemplate"
@@ -197,7 +188,7 @@ func getBaseTemplate(type: TemplateType) {
     guard copyTemplate(from: originPath + templateName, to: newPath) else { return }
     changeOwner(of: newPath)
   case .project:
-    printInConsole("Copying Project Template")
+    printProcess("Now Copy Project Template")
     let originPath = xcodeBasePath + "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application/"
     let templateName = "Single View Application.xctemplate"
     let newPath = "./BaseProjectTemplate.xctemplate"
@@ -207,15 +198,24 @@ func getBaseTemplate(type: TemplateType) {
   }
 }
 
-///Need to change owner after using sudo command, root -> sessionUserName
+/// Need to change owner after using sudo command, root -> sessionUserName
 func changeOwner(of path: String) {
   _ = bash(command: "chown", arguments: [sessionUserName, path])
 }
 
-
-//MARK: - Helper
-func printInConsole(_ message: String) {
+// MARK: - Helper
+func printProcess(_ message: String) {
   print(">>>>", message)
+}
+
+func printPathOptions() {
+  print("Select Directory Path to Install Template")
+  print(String(repeating: "#", count:40))
+  print("1: Custom File Template")
+  print("2: Custom Project Template")
+  print("3: Xcode File Template (admin only)")
+  print("4: Xcode Project Template (admin only)")
+  print(String(repeating: "#", count:40), terminator: "\n\n")
 }
 
 func authorityAlert(needSudo: Bool) {
@@ -231,27 +231,18 @@ func argumentsAlert() {
   print("usage : swift install_template.swift [-g file / -g project]\n")
 }
 
-
-enum TemplateType {
-  case file
-  case project
-}
-
-//MARK: Template Target Path
+// MARK: Template Target Path
 enum PathEndPoint: String {
   case customFileTemplate = "/Library/Developer/Xcode/Templates/File Templates/Custom"
   case customProjectTemplate = "/Library/Developer/Xcode/Templates/Project Templates/Custom"
-  
   //iOS Platform Path
   case xcodeFileTemplate = "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source"
   case xcodeProjectTemplate = "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"
 }
 
-
-
-//===============
-//MARK: - Execute
-//===============
+// ===============
+// MARK: - Execute
+// ===============
 
 let arguments = CommandLine.arguments
 
@@ -260,7 +251,6 @@ case 1:
   setup()
 case 3:
   let type = arguments[2]
-  
   guard arguments[1] == "-g", (type == "file" || type == "project") else {
     argumentsAlert()
     break
@@ -270,13 +260,12 @@ case 3:
     authorityAlert(needSudo: true)
     break
   }
-  
+
   if type == "file" {
     getBaseTemplate(type: .file)
   } else if type == "project" {
     getBaseTemplate(type: .project)
   }
-  
 default:
   argumentsAlert()
 }
