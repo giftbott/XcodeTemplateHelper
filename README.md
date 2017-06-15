@@ -13,8 +13,6 @@ Install Xcode Template with Ease.
 
 ### 1. Using script (strongly recommend)
 
-Just execute this command in terminal 
-
 - to install in `User Custom Path`
 ```shell
 swift install_template.swift
@@ -31,14 +29,14 @@ sudo swift install_template.swift
 
 ### 2. Manual
 
-##### [ File Template ]
+**[ File Template ]**
 
 - to install in `User Custom Path`.
 ```shell
 mkdir -p $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/[TemplateName].xctemplate/" && \
 cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/"
 ```
-** Copy & Paste above commands ** 
+Copy & Paste<br>
 or copy `[TemplateName].xctemplate` manually to `$HOME"/Library/Developer/Xcode/Templates/File Templates/Custom"` Directory (File Templates/Custom directory may not exist. It's default)
 
 - to install in `Xcode Application Path` 
@@ -50,15 +48,15 @@ sudo cp -R ./[TemplateName].xctemplate $tempDir
 or 
 Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/"`. and add `[TemplateName].xctemplate` to the directory.
 
-<br>
-##### [ Project Template ]
+
+**[ Project Template ]**
 
 - to install in `User Custom Path`.
 ```shell
 mkdir -p $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/[TemplateName].xctemplate/" && \
 cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/"
 ```
-** Copy & Paste above commands ** 
+Copy & Paste<br>
 or copy `[TemplateName].xctemplate` manually to `$HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom"` Directory (Project Templates/Custom directory may not exist. It's default)
 
 - to install in `Xcode Application Path` 
@@ -67,10 +65,10 @@ tempDir=`xcode-select -p`"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/T
 sudo mkdir -p $tempDir/[TemplateName].xctemplate/ && \
 sudo cp -R ./[TemplateName].xctemplate $tempDir
 ```
-or 
-Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"`. and add `[TemplateName].xctemplate` to the directory.
+or<br>
+Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"`. and add `[TemplateName].xctemplate` to the directory.
 
-Done. Now you can find your custom template in Xcode.
+Done. Now you can find your custom template in Xcode.<br>
 Congratulations! 🎉🎉
 
 ## Template Usage
@@ -80,6 +78,7 @@ Congratulations! 🎉🎉
 
 ##### 2. Project Template - 
 
+<br>
 ## Create Your Own Template
 Do you want to create custom template? Do this.
 ```shell
@@ -89,22 +88,29 @@ sudo swift install_template.swift -g file
 sudo swift install_template.swift -g project
 ```
 
-These commands provide Base(File/Project)Template you can start with.
-Base File Template is equal to ** Xcode Swift template. **
-Base Project Template is eqaul to Xcode ** Single View Application template. **
-
+These commands provide base template you can start with.<br>
 1. Get base template
 2. Edit
 3. Install
 
 👌👌
 
+※ Base file template is equal to **Xcode Swift template**.<br>
+※ Base project template is eqaul to Xcode **Single View Application template**.
+
+### ⚠️ Caution
+**You must change Identifier of your custom project template** before install it to custom or xcode application path
+<br>
+
 ## TODOs
 - [ ] Documentation for TemplateInfo.plist
-- [ ] Add more templates
 - [ ] Add option to script to remove template automatically
+- [ ] Add Project templates
 
-##### ** Any ideas? Issue & Pull request is encouraged. **
+### Contributing
 
-## License
-** Xcode Template Helper ** is under the MIT license. See [LICENSE](LICENSE) for details.
+Issues, Pull Requests and adding your custom template are always welcome.
+
+### License
+
+**Xcode Template Helper** is under the MIT license. See [LICENSE](LICENSE) for details.
