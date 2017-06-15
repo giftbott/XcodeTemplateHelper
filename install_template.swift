@@ -131,14 +131,15 @@ func install(template templateName: String) {
   printProcess("Template will be installed at \(directoryPath)")
   _ = bash(command: "mkdir", arguments: ["-p", directoryPath])
   
-  let fullPath = directoryPath.appending("/\(templateName)")
+  let fullPath = directoryPath.appending(templateName)
   
   let isSuccess = copyTemplate(from: templateName, to: fullPath)
   if isSuccess, basePath == userHomeDirectory, currentUserName == "root" {
     changeOwner(of: fullPath)
+
     let templateFiles = try? fileManager.contentsOfDirectory(atPath: fullPath)
-    
     guard let files = templateFiles else { return }
+
     for file in files {
       changeOwner(of: fullPath + "/\(file)")
     }
@@ -154,12 +155,12 @@ func copyTemplate(from: String, to: String) -> Bool {
     if !fileManager.fileExists(atPath: to) {
       try fileManager.copyItem(atPath: from, toPath: to)
       
-      printProcess("Template installed succesfully.")
+      printProcess("Template installed successfully.")
     } else {
       try _ = fileManager.removeItem(atPath: to)
       try fileManager.copyItem(atPath: from, toPath: to)
       
-      printProcess("Template has been replaced succesfully.")
+      printProcess("Template has been replaced successfully.")
     }
 
     return true
@@ -177,24 +178,34 @@ enum TemplateType {
 
 /// Copy from Xcode Template (File: Swift, Project: Single View Application)
 func getBaseTemplate(type: TemplateType) {
+  let (originPath, newPath) = configurePath(type)
+  guard copyTemplate(from: originPath, to: newPath) else { return }
+
+  // Change Owner of Directory
+  changeOwner(of: newPath)
+  
+  // Change Owner of files
+  let templateFiles = try? fileManager.contentsOfDirectory(atPath: newPath)
+  guard let files = templateFiles else { return }
+  for file in files {
+    changeOwner(of: newPath + "/\(file)")
+  }
+}
+
+func configurePath(_ type: TemplateType) -> (String, String) {
   let xcodeBasePath = bash(command: "xcode-select", arguments: ["--print-path"])
+  
   switch type {
   case .file:
     printProcess("Now Copy File Template")
-    let originPath = xcodeBasePath + "/Library/Xcode/Templates/File Templates/Source/"
-    let templateName = "Swift File.xctemplate"
-    let newPath = "./BaseFileTemplate.xctemplate"
-    
-    guard copyTemplate(from: originPath + templateName, to: newPath) else { return }
-    changeOwner(of: newPath)
+    let templatePath = xcodeBasePath + PathEndPoint.xcodeBaseFileTemplate.rawValue + "Swift File.xctemplate"
+    let copiedPath = "./BaseFileTemplate.xctemplate"
+    return (templatePath, copiedPath)
   case .project:
     printProcess("Now Copy Project Template")
-    let originPath = xcodeBasePath + "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application/"
-    let templateName = "Single View Application.xctemplate"
-    let newPath = "./BaseProjectTemplate.xctemplate"
-    
-    guard copyTemplate(from: originPath + templateName, to: newPath) else { return }
-    changeOwner(of: newPath)
+    let templatePath = xcodeBasePath + PathEndPoint.xcodeProjectTemplate.rawValue + "Single View Application.xctemplate"
+    let copiedPath = "./BaseProjectTemplate.xctemplate"
+    return (templatePath, copiedPath)
   }
 }
 
@@ -233,11 +244,13 @@ func argumentsAlert() {
 
 // MARK: Template Target Path
 enum PathEndPoint: String {
-  case customFileTemplate = "/Library/Developer/Xcode/Templates/File Templates/Custom"
-  case customProjectTemplate = "/Library/Developer/Xcode/Templates/Project Templates/Custom"
+  case customFileTemplate = "/Library/Developer/Xcode/Templates/File Templates/Custom/"
+  case customProjectTemplate = "/Library/Developer/Xcode/Templates/Project Templates/Custom/"
   //iOS Platform Path
-  case xcodeFileTemplate = "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source"
-  case xcodeProjectTemplate = "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"
+  case xcodeFileTemplate = "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/"
+  case xcodeProjectTemplate = "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application/"
+  //Xcode Base Template Path
+  case xcodeBaseFileTemplate = "/Library/Xcode/Templates/File Templates/Source/"
 }
 
 // ===============
