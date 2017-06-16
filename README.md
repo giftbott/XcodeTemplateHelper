@@ -29,42 +29,53 @@ sudo swift install_template.swift
 
 ### 2. Manual
 
+Copy & Paste command, or followed guide bellow. <br>
+And don't forget to replace [TemplateName] with your real template name.
+
 **[ File Template ]**
 
 - to install in `User Custom Path`.
+
 ```shell
 mkdir -p $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/[TemplateName].xctemplate/" && \
 cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/"
 ```
-Copy & Paste<br>
-or copy `[TemplateName].xctemplate` manually to `$HOME"/Library/Developer/Xcode/Templates/File Templates/Custom"` Directory (File Templates/Custom directory may not exist. It's default)
+
+or <br>
+copy `[TemplateName].xctemplate` manually to `$HOME"/Library/Developer/Xcode/Templates/File Templates/Custom"` Directory (File Templates/Custom directory may not exist. It's default)
 
 - to install in `Xcode Application Path` 
+
 ```shell
 tempDir=`xcode-select -p`"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/" && \
 sudo mkdir -p $tempDir/[TemplateName].xctemplate/ && \
 sudo cp -R ./[TemplateName].xctemplate $tempDir
 ```
-or 
+
+or <br>
 Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/"`. and add `[TemplateName].xctemplate` to the directory.
 
 
 **[ Project Template ]**
 
 - to install in `User Custom Path`.
+
 ```shell
 mkdir -p $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/[TemplateName].xctemplate/" && \
 cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/"
 ```
-Copy & Paste<br>
-or copy `[TemplateName].xctemplate` manually to `$HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom"` Directory (Project Templates/Custom directory may not exist. It's default)
+
+or <br>
+copy `[TemplateName].xctemplate` manually to `$HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom"` Directory (Project Templates/Custom directory may not exist. It's default)
 
 - to install in `Xcode Application Path` 
+
 ```shell
 tempDir=`xcode-select -p`"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application" && \
 sudo mkdir -p $tempDir/[TemplateName].xctemplate/ && \
 sudo cp -R ./[TemplateName].xctemplate $tempDir
 ```
+
 or<br>
 Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"`. and add `[TemplateName].xctemplate` to the directory.
 
@@ -78,17 +89,21 @@ Congratulations! 🎉🎉
 
 ##### 2. Project Template - 
 
-<br>
+
 ## Create Your Own Template
+
 Do you want to create custom template? Do this.
+
 ```shell
 sudo swift install_template.swift -g file
 ```
+
 ```shell
 sudo swift install_template.swift -g project
 ```
 
-These commands provide base template you can start with.<br>
+These commands provide base template you can start with.
+
 1. Get base template
 2. Edit
 3. Install
@@ -99,8 +114,7 @@ These commands provide base template you can start with.<br>
 ※ Base project template is eqaul to Xcode **Single View Application template**.
 
 ### ⚠️ Caution
-**You must change Identifier of your custom project template** before install it to custom or xcode application path
-<br>
+**You must change `Identifier` of your custom project template** before install it to custom or xcode application path
 
 ## TODOs
 - [ ] Documentation for TemplateInfo.plist
