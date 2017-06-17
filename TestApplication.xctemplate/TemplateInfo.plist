@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Kind</key>
+    <string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+    <key>Identifier</key>
+    <string>kr.blog.giftbot.testApplication</string>
+    <key>Ancestors</key>
+    <array>
+        <string>com.apple.dt.unit.storyboardApplication</string>
+    </array>
+    <key>Concrete</key>
+    <true/>
+    <key>Description</key>
+    <string>This template provides a starting point for testing TabBarController. It provides a TabBarController that have 2 view controllers and 1 navigation controller in storyboard</string>
+    <key>SortOrder</key>
+    <integer>1</integer>
+    <key>Definitions</key>
+    <dict>
+        <key>Base.lproj/Main.storyboard</key>
+        <dict>
+            <key>Path</key>
+            <string>Main.storyboard</string>
+            <key>SortOrder</key>
+            <integer>99</integer>
+        </dict>
+        <key>AViewController.swift</key>
+        <dict>
+            <key>SortOrder</key>
+            <integer>10</integer>
+        </dict>
+        <key>ASubViewController.swift</key>
+        <dict>
+            <key>SortOrder</key>
+            <integer>11</integer>
+        </dict>
+        <key>BViewController.swift</key>
+        <dict>
+            <key>SortOrder</key>
+            <integer>20</integer>
+        </dict>
+        <key>CTableViewController.swift</key>
+        <dict>
+            <key>SortOrder</key>
+            <integer>30</integer>
+        </dict>
+        <key>*:implementation:methods:doSomething</key>
+        <dict>
+            <key>Beginning</key>
+            <string>@IBAction func doSomething(_ button: UIButton) {
+  print("Test Button")</string>
+            <key>End</key>
+            <string>}</string>
+            <key>Indent</key>
+            <integer>1</integer>
+        </dict>
+        <key>CTableViewController.swift:implementation:properties:data</key>
+        <string>let data = ["1", "2", "3", "4"]</string>
+        <key>CTableViewController.swift:implementation:tableViewBase</key>
+        <string>
+override func numberOfSections(in tableView: UITableView) -> Int {
+  return 1
+}
+  
+override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  return data.count
+}
+
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    
+  cell.textLabel?.text = data[indexPath.row]
+
+  return cell
+}
+</string>
+
+        <!-- AppDelegate -->
+        <key>AppDelegate.swift:implementation:methods:applicationWillResignActive</key>
+        <string></string> 
+        <key>AppDelegate.swift:implementation:methods:applicationWillResignActive:comments</key>
+        <string></string> 
+        <key>AppDelegate.swift:implementation:methods:applicationDidEnterBackground</key>
+        <string></string>
+        <key>AppDelegate.swift:implementation:methods:applicationDidEnterBackground:comments</key>
+        <string></string>
+        <key>AppDelegate.swift:implementation:methods:applicationWillEnterForeground</key>
+        <string></string>
+        <key>AppDelegate.swift:implementation:methods:applicationWillEnterForeground:comments</key>
+        <string></string>
+        <key>AppDelegate.swift:implementation:methods:applicationDidBecomeActive</key>
+        <string></string>
+        <key>AppDelegate.swift:implementation:methods:applicationDidBecomeActive:comments</key>
+        <string></string>
+        <key>AppDelegate.swift:implementation:methods:applicationWillTerminate</key>
+        <string></string>
+        <key>AppDelegate.swift:implementation:methods:applicationWillTerminate:comments</key>
+        <string></string>
+        <!-- pList -->
+        <key>Info.plist:UISupportedInterfaceOrientations~iPhone</key>
+        <string><![CDATA[<key>UISupportedInterfaceOrientations</key>
+<array>
+     <string>UIInterfaceOrientationPortrait</string>
+</array>
+]]></string>
+        <key>Info.plist:AppTransportSecurity</key>
+        <string><![CDATA[<key>NSAppTransportSecurity</key>
+<dict>
+     <key>NSAllowsArbitraryLoads</key>
+     <true/>
+</dict>
+]]></string>
+    </dict>
+    <key>Nodes</key>
+    <array>
+        <!-- AViewController -->
+        <string>AViewController.swift:comments</string>
+        <string>AViewController.swift:imports:importCocoa</string>
+        <string>AViewController.swift:implementation(___FILEBASENAME___: UIViewController)</string>
+        <string>AViewController.swift:implementation:methods:viewDidLoad(override func viewDidLoad(\))</string>
+        <string>AViewController.swift:implementation:methods:viewDidLoad:super</string>
+        <string>AViewController.swift:implementation:methods:doSomething</string>
+        <!--ASubViewController -->
+        <string>ASubViewController.swift:comments</string>
+        <string>ASubViewController.swift:imports:importCocoa</string>
+        <string>ASubViewController.swift:implementation(___FILEBASENAME___: UIViewController)</string>
+        <string>ASubViewController.swift:implementation:methods:viewDidLoad(override func viewDidLoad(\))</string>
+        <string>ASubViewController.swift:implementation:methods:viewDidLoad:super</string>
+        <string>ASubViewController.swift:implementation:methods:doSomething</string>
+        <!--BViewController -->
+        <string>BViewController.swift:comments</string>
+        <string>BViewController.swift:imports:importCocoa</string>
+        <string>BViewController.swift:implementation(___FILEBASENAME___: UIViewController)</string>
+        <string>BViewController.swift:implementation:methods:viewDidLoad(override func viewDidLoad(\))</string>
+        <string>BViewController.swift:implementation:methods:viewDidLoad:super</string>
+        <string>BViewController.swift:implementation:methods:doSomething</string>
+        <!--CTableViewController -->
+        <string>CTableViewController.swift:comments</string>
+        <string>CTableViewController.swift:imports:importCocoa</string>
+        <string>CTableViewController.swift:implementation(___FILEBASENAME___: UITableViewController)</string>
+        <string>CTableViewController.swift:implementation:properties:data</string>
+        <string>CTableViewController.swift:implementation:methods:viewDidLoad(override func viewDidLoad(\))</string>
+        <string>CTableViewController.swift:implementation:methods:viewDidLoad:super</string>
+        <string>CTableViewController.swift:implementation:tableViewBase</string>
+        <!-- pList -->
+        <string>Info.plist:AppTransportSecurity</string>
+    </array>
+</dict>
+</plist>
