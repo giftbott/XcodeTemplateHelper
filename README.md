@@ -83,11 +83,11 @@ Done. Now you can find your custom template in Xcode.<br>
 Congratulations! 🎉🎉
 
 ## Template Usage
-##### 1. File Template -  ViperModule Template 
+##### 1. File Template - ViperModule Template 
 
 ![Usage](assets/ViperModuleUsage.gif)
 
-##### 2. Project Template - 
+##### 2. Project Template - TestApplication Template
 
 ![Usage](assets/TestApplicationUsage.gif)
 
@@ -121,7 +121,6 @@ These commands provide base template you can start with.
 ## TODOs
 - [ ] Documentation for TemplateInfo.plist
 - [ ] Add option to script to remove template automatically
-- [ ] Add Project templates
 
 ### Contributing
 
