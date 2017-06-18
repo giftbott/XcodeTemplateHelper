@@ -89,6 +89,8 @@ Congratulations! 🎉🎉
 
 ##### 2. Project Template - 
 
+![Usage](assets/TestApplicationUsage.gif)
+
 
 ## Create Your Own Template
 
