@@ -53,7 +53,7 @@ sudo cp -R ./[TemplateName].xctemplate $tempDir
 ```
 
 or <br>
-Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/"`. and add `[TemplateName].xctemplate` to the directory.
+Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/"`. and add `[TemplateName].xctemplate` to the directory.
 
 
 **[ Project Template ]**
@@ -77,7 +77,7 @@ sudo cp -R ./[TemplateName].xctemplate $tempDir
 ```
 
 or<br>
-Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"`. and add `[TemplateName].xctemplate` to the directory.
+Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"`. and add `[TemplateName].xctemplate` to the directory.
 
 Done. Now you can find your custom template in Xcode.<br>
 Congratulations! 🎉🎉
