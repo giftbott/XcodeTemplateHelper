@@ -3,13 +3,14 @@
 ## Xcode Template Helper
 Install Xcode Template with Ease.
 
-- [How to install](#how-to-install)
+- [How to Install](#how-to-install)
   - [Using Script](#1-using-script-strongly-recommend)
   - [Manual](#2-manual)
 - [Template Usage](#template-usage)
 - [Create Your Own Template](#create-your-own-template)
+- [Remove Custom Template](#remove-custom-template)
 
-## How to install
+## How to Install
 
 ### 1. Using script (strongly recommend)
 
@@ -118,9 +119,22 @@ These commands provide base template you can start with.
 ### ⚠️ Caution
 **You must change `Identifier` of your custom project template** before install it to custom or xcode application path
 
+## Remove Custom Template
+
+### 1. Using script
+Add `sudo` like install_template if you want to remove template within xcode application path.                                  
+```shell
+swift remove_template.swift
+```
+
+### 2. Manual
+
+Just delete your custom template from the path that you have installed
+
 ## TODOs
 - [ ] Documentation for TemplateInfo.plist
-- [ ] Add option to script to remove template automatically
+- [ ] Add more templates
+- [o] Add option to script to remove template automatically
 
 ### Contributing
 
