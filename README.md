@@ -25,7 +25,7 @@ sudo swift install_template.swift
 ```
 
 - ##### ScreenShot
-  ![install via script](assets/script_image.png)
+  ![install via script](assets/install_script.png)
 
 
 ### 2. Manual
@@ -122,10 +122,14 @@ These commands provide base template you can start with.
 ## Remove Custom Template
 
 ### 1. Using script
-Add `sudo` like install_template if you want to remove template within xcode application path.                                  
+Add `sudo` like install_template if you want to remove a template within xcode application path.                                  
+
 ```shell
 swift remove_template.swift
 ```
+
+- ##### ScreenShot
+  ![remove via script](assets/remove_script.png)
 
 ### 2. Manual
 
