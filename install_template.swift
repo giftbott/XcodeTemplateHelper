@@ -48,7 +48,7 @@ func setup() {
     .filter { $0.hasSuffix(".xctemplate") }
   
   guard let templates = templateChecker, !templates.isEmpty else {
-    printProcess("xctemplate directory does not exist")
+    printProcess("xctemplate does not exist")
     return
   }
   
@@ -64,8 +64,10 @@ func setup() {
   print(String(repeating: "#", count:30), terminator: "\n\n")
   
   while true {
-    print("Select template number : ", terminator: "")
+    print("Select template number (q: quit) : ", terminator: "")
     let input = readLine() ?? "1"
+
+    guard input.lowercased() != "q" else { exit(0) }
     guard let num = Int(input), num >= 1, num <= templates.count else {
       print("Wrong Value\n")
       continue
@@ -94,16 +96,16 @@ func install(template templateName: String) {
   
   // 
   while true {
-    print("Select Target Path Number : ", terminator: "")
+    print("Input Target Number (q: quit) :", terminator: "")
     let input = readLine() ?? "1"
+
+    guard input.lowercased() != "q" else { exit(0) }
     guard let num = Int(input), num >= 1, num <= 4 else {
       print("Wrong Value\n")
       continue
     }
     
     switch num {
-    case 1:
-      break
     case 2:
       pathEndPoint = PathEndPoint.customProjectTemplate.rawValue
     case 3:
@@ -220,7 +222,7 @@ func printProcess(_ message: String) {
 }
 
 func printPathOptions() {
-  print("Select Directory Path to Install Template")
+  print("Select Path to Install Template")
   print(String(repeating: "#", count:40))
   print("1: Custom File Template")
   print("2: Custom Project Template")
