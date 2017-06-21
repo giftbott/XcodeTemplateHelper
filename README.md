@@ -134,7 +134,6 @@ Just delete your custom template from the path that you have installed
 ## TODOs
 - [ ] Documentation for TemplateInfo.plist
 - [ ] Add more templates
-- [o] Add option to script to remove template automatically
 
 ### Contributing
 
