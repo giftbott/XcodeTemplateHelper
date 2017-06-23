@@ -94,7 +94,6 @@ func install(template templateName: String) {
   var basePath = userHomeDirectory
   var pathEndPoint = PathEndPoint.customFileTemplate.rawValue
   
-  // 
   while true {
     print("Input Target Number (q: quit) :", terminator: "")
     let input = readLine() ?? "1"
