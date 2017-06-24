@@ -102,7 +102,7 @@ func setup() {
   }
   
   guard let templates = templateChecker, !templates.isEmpty else {
-    printProcess("xctemplate does not exist")
+    printProcess("Custom template does not exist")
     return
   }
   
@@ -137,7 +137,7 @@ func remove(template: String) {
       try _ = fileManager.removeItem(atPath: template)
       printProcess("Template has been removed successfully")
     } else {
-      printProcess("Template does not exist")
+      printProcess("Custom template does not exist")
     }
   } catch let error as NSError {
     printProcess("Ooops! Something went wrong: \(error.localizedFailureReason!)")
