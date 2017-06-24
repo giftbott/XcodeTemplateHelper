@@ -4,17 +4,15 @@
 Install Xcode Template with Ease.
 
 - [How to Install](#how-to-install)
- 1. [Using Script](#1-using-script-strongly-recommended)
- 2. [By Manually](#2-by-manually)
+  - [Using Script](#1-using-script-strongly-recommended)
+  - [By Manually](#2-by-manually)
 - [Template Usage](#template-usage)
 - [Create Your Own Template](#create-your-own-template)
 - [Remove Custom Template](#remove-custom-template)
- 1. [Using Script](#1-using-script)
- 2. [By Manually](#2-by-manually)
 
 ## How to Install
 
-### 1. Using cript (strongly recommended)
+### 1. Using script (strongly recommended)
 
 - to install in `User Custom Path`
 ```shell
@@ -97,7 +95,7 @@ Congratulations! 🎉🎉
 
 ## Create Your Own Template
 
-Do you want to create custom template? Do this.
+Do you want to create custom template? Do like this.
 
 ```shell
 sudo swift install_template.swift -g file
