@@ -42,9 +42,6 @@ mkdir -p $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/[Templat
 cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/"
 ```
 
-or <br>
-copy `[TemplateName].xctemplate` manually to `$HOME"/Library/Developer/Xcode/Templates/File Templates/Custom"` Directory (File Templates/Custom directory may not exist. It's default)
-
 - to install in `Xcode Application Path` 
 
 ```shell
@@ -52,9 +49,6 @@ tempDir=`xcode-select -p`"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/T
 sudo mkdir -p $tempDir/[TemplateName].xctemplate/ && \
 sudo cp -R ./[TemplateName].xctemplate $tempDir
 ```
-
-or <br>
-Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/"`. and add `[TemplateName].xctemplate` to the directory.
 
 
 **[ Project Template ]**
@@ -66,9 +60,6 @@ mkdir -p $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/[Temp
 cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/"
 ```
 
-or <br>
-copy `[TemplateName].xctemplate` manually to `$HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom"` Directory (Project Templates/Custom directory may not exist. It's default)
-
 - to install in `Xcode Application Path` 
 
 ```shell
@@ -77,11 +68,9 @@ sudo mkdir -p $tempDir/[TemplateName].xctemplate/ && \
 sudo cp -R ./[TemplateName].xctemplate $tempDir
 ```
 
-or<br>
-Go to Application directory, select 'Show Package Contents' menu of Xcode application icon. Then browse to: `"Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"`. and add `[TemplateName].xctemplate` to the directory.
-
 Done. Now you can find your custom template in Xcode.<br>
 Congratulations! 🎉🎉
+
 
 ## Template Usage
 ##### 1. File Template - ViperModule Template 
@@ -118,6 +107,7 @@ These commands provide base template you can start with.
 
 ### ⚠️ Caution
 **You must change `Identifier` of your custom project template** before install it to custom or xcode application path
+
 
 ## Remove Custom Template
 
