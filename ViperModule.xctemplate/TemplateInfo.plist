@@ -60,39 +60,6 @@
 			<true/>
 		</dict>
 		<dict>
-			<key>Identifier</key>
-			<string>_DataManager</string>
-			<key>Name</key>
-			<string>Include DataManager</string>
-			<key>Description</key>
-			<string>Whether to use a Datamanager File</string>
-			<key>Type</key>
-			<string>checkbox</string>
-			<key>Default</key>
-			<string>false</string>
-			<key>NotPersisted</key>
-			<true/>
-			<key>RequiredOptions</key>
-			<dict>
-				<key>moduleType</key>
-				<string>with Interactor</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Identifier</key>
-			<string>_UnitTest</string>
-			<key>Name</key>
-			<string>Include Unit Tests</string>
-			<key>Description</key>
-			<string>Whether to include Unit Test files</string>
-			<key>Type</key>
-			<string>checkbox</string>
-			<key>Default</key>
-			<string>false</string>
-			<key>NotPersisted</key>
-			<true/>
-		</dict>
-		<dict>
 			<key>Default</key>
 			<string>___VARIABLE_viperModuleName___</string>
 			<key>Identifier</key>
