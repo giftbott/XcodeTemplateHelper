@@ -8,14 +8,18 @@
 
 import UIKit
 
-final class ___FILEBASENAMEASIDENTIFIER___Wireframe {
-  weak var view: ___FILEBASENAMEASIDENTIFIER___ViewController!
+protocol ___VARIABLE_viperModuleName___WireframeProtocol: class {
+  // Presenter -> Wireframe
+}
+
+final class ___VARIABLE_viperModuleName___Wireframe {
+  weak var view: ___VARIABLE_viperModuleName___ViewController!
   
-  static func createModule() -> ___FILEBASENAMEASIDENTIFIER___ViewController {
-    let view = ___FILEBASENAMEASIDENTIFIER___ViewController()
-    let wireframe = ___FILEBASENAMEASIDENTIFIER___Wireframe()
-    let interactor = ___FILEBASENAMEASIDENTIFIER___Interactor()
-    let presenter = ___FILEBASENAMEASIDENTIFIER___Presenter(view: view, wireframe: wireframe, interactor: interactor)
+  static func createModule() -> ___VARIABLE_viperModuleName___ViewController {
+    let view = ___VARIABLE_viperModuleName___ViewController()
+    let wireframe = ___VARIABLE_viperModuleName___Wireframe()
+    let interactor = ___VARIABLE_viperModuleName___Interactor()
+    let presenter = ___VARIABLE_viperModuleName___Presenter(view: view, wireframe: wireframe, interactor: interactor)
     
     view.presenter = presenter
     wireframe.view = view
@@ -25,6 +29,7 @@ final class ___FILEBASENAMEASIDENTIFIER___Wireframe {
   }
 }
 
-//MARK: WireframeProtocol
-extension ___FILEBASENAMEASIDENTIFIER___Wireframe: ___FILEBASENAMEASIDENTIFIER___WireframeProtocol {
+// MARK: - WireframeProtocol
+
+extension ___VARIABLE_viperModuleName___Wireframe: ___VARIABLE_viperModuleName___WireframeProtocol {
 }

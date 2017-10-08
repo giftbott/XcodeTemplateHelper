@@ -8,19 +8,25 @@
 
 import Foundation
 
-final class ___FILEBASENAMEASIDENTIFIER___Presenter {
-  weak var view: ___FILEBASENAMEASIDENTIFIER___ViewProtocol!
-  let wireframe: ___FILEBASENAMEASIDENTIFIER___WireframeProtocol
+protocol ___VARIABLE_viperModuleName___PresenterProtocol: class {
+  // View -> Presenter
+  func onViewDidLoad()
+}
+
+final class ___VARIABLE_viperModuleName___Presenter {
+  weak var view: ___VARIABLE_viperModuleName___ViewProtocol!
+  let wireframe: ___VARIABLE_viperModuleName___WireframeProtocol
   
-  init(view: ___FILEBASENAMEASIDENTIFIER___ViewProtocol,
-       wireframe: ___FILEBASENAMEASIDENTIFIER___WireframeProtocol) {
+  init(view: ___VARIABLE_viperModuleName___ViewProtocol,
+       wireframe: ___VARIABLE_viperModuleName___WireframeProtocol) {
     self.view = view
     self.wireframe = wireframe
   }
 }
 
-//MARK: PresenterProtocol
-extension ___FILEBASENAMEASIDENTIFIER___Presenter: ___FILEBASENAMEASIDENTIFIER___PresenterProtocol {
+// MARK: - PresenterProtocol
+
+extension ___VARIABLE_viperModuleName___Presenter: ___VARIABLE_viperModuleName___PresenterProtocol {
   func onViewDidLoad() {
     
   }
