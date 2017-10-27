@@ -10,16 +10,27 @@ import UIKit
 
 protocol ___VARIABLE_viperModuleName___ViewProtocol: class {
   // Presenter -> View
+  // <#Protocols#>
 }
 
-final class ___VARIABLE_viperModuleName___ViewController: UIViewController {
-  var presenter: ___VARIABLE_viperModuleName___PresenterProtocol!
+// MARK: - Class Implementation
 
-  // View LifeCycle
+final class ___VARIABLE_viperModuleName___ViewController: UIViewController {
+  
+  // MARK: Properties
+  
+  var presenter: ___VARIABLE_viperModuleName___PresenterProtocol!
+  // <#Properties#>
+  
+  // MARK: View Life Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     presenter.onViewDidLoad()
   }
+  
+  // MARK:
+  
 }
 
 // MARK: - ViewProtocol

@@ -11,27 +11,36 @@ import Foundation
 protocol ___VARIABLE_viperModuleName___PresenterProtocol: class {
   // View -> Presenter
   func onViewDidLoad()
+  // <#Protocols#>
 }
 
 protocol ___VARIABLE_viperModuleName___InteractorOutputProtocol: class {
   // Interactor -> Presenter
 }
 
+// MARK: - Class Implementation
+
 final class ___VARIABLE_viperModuleName___Presenter {
-  weak var view: ___VARIABLE_viperModuleName___ViewProtocol!
-  let wireframe: ___VARIABLE_viperModuleName___WireframeProtocol
-  let interactor: ___VARIABLE_viperModuleName___InteractorInputProtocol
   
-  init(view: ___VARIABLE_viperModuleName___ViewProtocol,
-       wireframe: ___VARIABLE_viperModuleName___WireframeProtocol,
-       interactor: ___VARIABLE_viperModuleName___InteractorInputProtocol) {
-    self.view = view
-    self.wireframe = wireframe
-    self.interactor = interactor
+  // MARK: Properties
+  
+  weak var view: ___VARIABLE_viperModuleName___ViewProtocol!
+  var wireframe: ___VARIABLE_viperModuleName___WireframeProtocol!
+  var interactor: ___VARIABLE_viperModuleName___InteractorInputProtocol!
+  // <#Properties#>
+
+  // MARK: Initializing
+  
+  init() {
+    
   }
+  
+  // MARK:
+  
 }
 
 // MARK: - PresenterProtocol
+
 extension ___VARIABLE_viperModuleName___Presenter: ___VARIABLE_viperModuleName___PresenterProtocol {
   func onViewDidLoad() {
     
@@ -39,6 +48,7 @@ extension ___VARIABLE_viperModuleName___Presenter: ___VARIABLE_viperModuleName__
 }
 
 // MARK: - InteractorOutputProtocol
+
 extension ___VARIABLE_viperModuleName___Presenter: ___VARIABLE_viperModuleName___InteractorOutputProtocol {
   
 }

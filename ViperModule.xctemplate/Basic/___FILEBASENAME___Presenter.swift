@@ -11,17 +11,27 @@ import Foundation
 protocol ___VARIABLE_viperModuleName___PresenterProtocol: class {
   // View -> Presenter
   func onViewDidLoad()
+  // <#Protocols#>
 }
 
+// MARK: - Class Implementation
+
 final class ___VARIABLE_viperModuleName___Presenter {
-  weak var view: ___VARIABLE_viperModuleName___ViewProtocol!
-  let wireframe: ___VARIABLE_viperModuleName___WireframeProtocol
   
-  init(view: ___VARIABLE_viperModuleName___ViewProtocol,
-       wireframe: ___VARIABLE_viperModuleName___WireframeProtocol) {
-    self.view = view
-    self.wireframe = wireframe
+  // MARK: Properties
+  
+  weak var view: ___VARIABLE_viperModuleName___ViewProtocol!
+  var wireframe: ___VARIABLE_viperModuleName___WireframeProtocol!
+  // <#Properties#>
+  
+  // MARK: Initializing
+  
+  init() {
+    
   }
+  
+  // MARK:
+  
 }
 
 // MARK: - PresenterProtocol

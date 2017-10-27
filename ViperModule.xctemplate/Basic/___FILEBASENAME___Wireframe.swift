@@ -12,23 +12,26 @@ protocol ___VARIABLE_viperModuleName___WireframeProtocol: class {
   // Presenter -> Wireframe
 }
 
-final class ___VARIABLE_viperModuleName___Wireframe {
-  weak var view: ___VARIABLE_viperModuleName___ViewController!
+// MARK: - Class Implementation
+
+final class ___VARIABLE_viperModuleName___Wireframe: ___VARIABLE_viperModuleName___WireframeProtocol {
+  weak var view: UIViewController!
+  
+  // MARK: Initializing
   
   static func createModule() -> ___VARIABLE_viperModuleName___ViewController {
     let view = ___VARIABLE_viperModuleName___ViewController()
     let wireframe = ___VARIABLE_viperModuleName___Wireframe()
-    let presenter = ___VARIABLE_viperModuleName___Presenter(view: view, wireframe: wireframe)
+    let presenter = ___VARIABLE_viperModuleName___Presenter()
     
     view.presenter = presenter
     wireframe.view = view
-    
+    presenter.view = view
+    presenter.wireframe = wireframe
     return view
   }
-}
-
-// MARK: - WireframeProtocol
-
-extension ___VARIABLE_viperModuleName___Wireframe: ___VARIABLE_viperModuleName___WireframeProtocol {
+  
+  // MARK: Navigation
+ 
   
 }
