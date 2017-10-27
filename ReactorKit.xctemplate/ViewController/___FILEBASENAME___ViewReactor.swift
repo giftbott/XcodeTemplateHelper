@@ -25,9 +25,13 @@ final class ___VARIABLE_reactorKitModuleName___ViewReactor: Reactor {
   
   let initialState: State
   
+  // MARK: Initializing
+  
   init() {
     initialState = State()
   }
+  
+  // MARK: Mutate
   
   func mutate(action: Action) -> Observable<Mutation> {
     switch action {

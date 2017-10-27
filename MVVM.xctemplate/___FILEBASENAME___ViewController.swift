@@ -8,22 +8,22 @@
 
 import UIKit
 
-import ReactorKit
 import RxCocoa
 import RxSwift
 
-final class ___VARIABLE_reactorKitModuleName___ViewController: UIViewController, View {
+final class ___VARIABLE_MVVMModuleName___ViewController: UIViewController, ViewType {
   
   // MARK: Properties
   
-  var disposeBag = DisposeBag()
+  let disposeBag = DisposeBag()
+  let viewModel: ___VARIABLE_MVVMModuleName___ViewModelType
 //  <#Properties#>
 
   // MARK: Initializing
   
-  init(reactor: ___VARIABLE_reactorKitModuleName___ViewReactor) {
+  init(viewModel: ___VARIABLE_MVVMModuleName___ViewModelType) {
+    self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
-    self.reactor = reactor
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -36,13 +36,15 @@ final class ___VARIABLE_reactorKitModuleName___ViewController: UIViewController,
     super.viewDidLoad()
   }
   
-  // MARK: Binding
+  // MARK: Setup UI
   
-  func bind(reactor: ___VARIABLE_reactorKitModuleName___ViewReactor) {
-    // Action
-  //  <#Code#>
+  func setupUI() {
     
-    // State
-  //  <#Code#>
+  }
+  
+  // MARK: Rx Binding
+  
+  func setupBinding() {
+
   }
 }

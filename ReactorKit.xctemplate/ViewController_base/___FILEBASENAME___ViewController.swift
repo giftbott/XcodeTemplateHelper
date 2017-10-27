@@ -43,8 +43,9 @@ final class ___VARIABLE_reactorKitModuleName___ViewController: BaseViewControlle
   
   func bind(reactor: ___VARIABLE_reactorKitModuleName___ViewReactor) {
     // Action
+  //  <#Code#>
     
     // State
-    
+  //  <#Code#>
   }
 }
