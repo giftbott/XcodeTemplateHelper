@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowedTypes</key>
+	<array>
+		<string>public.swift-source</string>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>DefaultCompletionName</key>
+	<string>MVP Module</string>
+	<key>Description</key>
+	<string>Creates basic view and presenter template for MVP</string>
+	<key>Kind</key>
+	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___.swift</string>
+	<key>SortOrder</key>
+	<integer>90</integer>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>Name of the module to create</string>
+			<key>Identifier</key>
+			<string>MVPModuleName</string>
+			<key>Name</key>
+			<string>Module name</string>
+			<key>Default</key>
+			<string>ModuleName</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Placeholder</key>
+			<string>Input Module Name</string>
+			<key>Required</key>
+			<true/>
+			<key>NotPersisted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>Module type</string>
+			<key>Identifier</key>
+			<string>moduleType</string>
+			<key>Name</key>
+			<string>Module Type</string>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Values</key>
+			<array>
+				<string>Basic</string>
+			</array>
+			<key>Default</key>
+			<string>Basic</string>
+			<key>Required</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>_base</string>
+			<key>Name</key>
+			<string>Inherited from a BaseViewController</string>
+			<key>Description</key>
+			<string>Whether to use a BaseViewController Class</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<string>false</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>moduleType</key>
+				<string>Basic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_MVPModuleName___</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Template Author</key>
+	<string>giftbott</string>
+	<key>Summary</key>
+	<string>This generates a new module using MVP architecture.</string>
+</dict>
+</plist>
