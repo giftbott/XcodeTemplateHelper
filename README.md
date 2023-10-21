@@ -16,12 +16,12 @@ Install Xcode Template with Ease.
 
 - to install in `User Custom Path`
 ```shell
-swift install_template.swift
+./template_helper
 ```
 
 - to install in `Xcode application Path` 
 ```shell
-sudo swift install_template.swift
+sudo ./template_helper
 ```
 
 - ##### ScreenShot
