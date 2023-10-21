@@ -10,8 +10,9 @@ import Foundation
 
 /// Should select template only if more than one
 func installTemplateSetup() {
+
   let templateChecker = try? fileManager
-    .contentsOfDirectory(atPath: "./")
+    .contentsOfDirectory(atPath: "Templates")
     .filter { $0.hasSuffix(".xctemplate") }
   
   guard let templates = templateChecker, !templates.isEmpty else {
@@ -42,25 +43,21 @@ func installTemplateSetup() {
     
     let templateName = templates[num - 1]
     printProcess("\(templateName) is selected\n")
-    
+
     install(template: templateName)
     break
   }
 }
 
-/// Copy template to selected target path
-func install(template templateName: String) {
-  listTemplateOptions()
-
+func makeTargetPath() -> String {
   // Select Target Base Path
-  let userHomeDirectory = "/Users/".appending(sessionUserName)
+  let userHomeDir = "/Users/".appending(sessionUserName)
   let xcodeBasePath = bash(command: "xcode-select", arguments: ["--print-path"])
-  
+
   // Default Path (Custom File Template)
-  var basePath = userHomeDirectory
+  var basePath = userHomeDir
   var templatePath = TemplatePath.customFile.rawValue
 
-  // 
   while true {
     print("Input Target Number (q: quit): ", terminator: "")
     let input = readLine() ?? "1"
@@ -70,47 +67,57 @@ func install(template templateName: String) {
       print("Wrong Value\n")
       continue
     }
-    
+
     switch num {
     case 2:
       templatePath = TemplatePath.customProject.rawValue
     case 3:
       guard currentUserName == "root" else {
         authorityAlert(needSudo: true)
-        return
+        exit(-1)
       }
       basePath = xcodeBasePath
       templatePath = TemplatePath.xcodeFile.rawValue
     case 4:
       guard currentUserName == "root" else {
         authorityAlert(needSudo: true)
-        return
+        exit(-1)
       }
       basePath = xcodeBasePath
       templatePath = TemplatePath.xcodeProject.rawValue
     default:
       break
     }
-    
+
     break
   }
-  
-  let directoryPath = basePath.appending(templatePath)
-  printProcess("Template will be installed at \(directoryPath)")
-  _ = bash(command: "mkdir", arguments: ["-p", directoryPath])
-  
-  let fullPath = directoryPath.appending(templateName)
 
-  let isSuccess = copyTemplate(from: templateName, to: fullPath)
-  if isSuccess, basePath == userHomeDirectory, currentUserName == "root" {
-    changeOwner(of: fullPath)
+  let targetPath = basePath.appending(templatePath)
+  printProcess("Template will be installed at \(targetPath)")
+  bash(command: "mkdir", arguments: ["-p", targetPath])
 
-    let templateFiles = try? fileManager.contentsOfDirectory(atPath: fullPath)
-    guard let files = templateFiles else { return }
+  return targetPath
+}
 
-    for file in files {
-      changeOwner(of: fullPath + "/\(file)")
-    }
+/// Copy template to selected target path
+func install(template templateName: String) {
+  listTemplateOptions()
+
+  let originPath = "./templates/"
+  let originTemplate = originPath + templateName
+  let targetPath = makeTargetPath()
+  let targetLocation = targetPath + templateName
+  let isSuccess = copyTemplate(from: originTemplate, to: targetLocation)
+
+  if isSuccess, targetPath.hasPrefix("/Users"), currentUserName == "root" {
+    changeOwner(of: targetPath)
+
+    //let templateFiles = try? fileManager.contentsOfDirectory(atPath: targetPath)
+    //guard let files = templateFiles else { return }
+
+    //for file in files {
+      //changeOwner(of: targetPath + "/\(file)")
+    //}
   }
 }
 

@@ -25,12 +25,12 @@ func configurePath(_ type: TemplateType) -> (String, String) {
   case .file:
     printProcess("Now Copy File Template")
     let templatePath = xcodeBasePath + TemplatePath.xcodeBaseFile.rawValue + "Swift File.xctemplate"
-    let copiedPath = "./BaseFileTemplate.xctemplate"
+    let copiedPath = "./templates/BaseFileTemplate.xctemplate"
     return (templatePath, copiedPath)
   case .project:
     printProcess("Now Copy Project Template")
     let templatePath = xcodeBasePath + TemplatePath.xcodeProject.rawValue + "App.xctemplate"
-    let copiedPath = "./BaseProjectTemplate.xctemplate"
+    let copiedPath = "./templates/BaseProjectTemplate.xctemplate"
     return (templatePath, copiedPath)
   }
 }
