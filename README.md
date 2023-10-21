@@ -25,7 +25,7 @@ sudo ./template_helper
 ```
 
 - ##### ScreenShot
-  ![install via script](assets/install_script.png)
+  ![install via script](assets/install_template.png)
 
 
 ### 2. Manual
@@ -45,7 +45,7 @@ cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/File 
 - to install in `Xcode Application Path` 
 
 ```shell
-tempDir=`xcode-select -p`"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/Source/" && \
+tempDir=`xcode-select -p`"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/MultiPlatform/Source/" && \
 sudo mkdir -p $tempDir/[TemplateName].xctemplate/ && \
 sudo cp -R ./[TemplateName].xctemplate $tempDir
 ```
@@ -82,16 +82,18 @@ Congratulations! 🎉🎉
 ![Usage](assets/TestApplicationUsage.gif)
 
 
+
 ## Create Your Own Template
 
-Do you want to create custom template? Do this.
+Do you want to create custom template? <br>
+Consider starting based on Xcode's default template
 
 ```shell
-sudo swift install_template.swift -g file
+sudo ./template_helper -g file
 ```
 
 ```shell
-sudo swift install_template.swift -g project
+sudo ./template_helper -g project
 ```
 
 These commands provide base template you can start with.
@@ -109,17 +111,18 @@ These commands provide base template you can start with.
 **You must change `Identifier` of your custom project template** before install it to custom or xcode application path
 
 
+
 ## Remove Custom Template
 
 ### 1. Using script
 Add `sudo` like install_template if you want to remove a template within xcode application path.                                  
 
 ```shell
-swift remove_template.swift
+./template_helper -r
 ```
 
 - ##### ScreenShot
-  ![remove via script](assets/remove_script.png)
+  ![remove via script](assets/remove_template.png)
 
 ### 2. Manual
 
@@ -127,7 +130,6 @@ Just delete your custom template from the path that you have installed
 
 ## TODOs
 - [ ] Documentation for TemplateInfo.plist
-- [ ] Add more templates
 
 ### Contributing
 
