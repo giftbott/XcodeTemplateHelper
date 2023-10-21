@@ -1,4 +1,4 @@
-![](assets/logo.png)
+![](Assets/logo.png)
 
 ## Xcode Template Helper
 Install Xcode Template with Ease.
@@ -25,7 +25,7 @@ sudo ./template_helper
 ```
 
 - ##### ScreenShot
-  ![install via script](assets/install_template.png)
+  ![install via script](Assets/install_template.png)
 
 
 ### 2. Manual
@@ -39,7 +39,7 @@ And don't forget to replace [TemplateName] with your real template name.
 
 ```shell
 mkdir -p $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/[TemplateName].xctemplate/" && \
-cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/"
+cp -R ./Templates/[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/File Templates/Custom/"
 ```
 
 - to install in `Xcode Application Path` 
@@ -47,7 +47,7 @@ cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/File 
 ```shell
 tempDir=`xcode-select -p`"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/MultiPlatform/Source/" && \
 sudo mkdir -p $tempDir/[TemplateName].xctemplate/ && \
-sudo cp -R ./[TemplateName].xctemplate $tempDir
+sudo cp -R ./Templates/[TemplateName].xctemplate $tempDir
 ```
 
 
@@ -57,7 +57,7 @@ sudo cp -R ./[TemplateName].xctemplate $tempDir
 
 ```shell
 mkdir -p $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/[TemplateName].xctemplate/" && \
-cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/"
+cp -R ./Templates/[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/Project Templates/Custom/"
 ```
 
 - to install in `Xcode Application Path` 
@@ -65,7 +65,7 @@ cp -R ./[TemplateName].xctemplate $HOME"/Library/Developer/Xcode/Templates/Proje
 ```shell
 tempDir=`xcode-select -p`"/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application" && \
 sudo mkdir -p $tempDir/[TemplateName].xctemplate/ && \
-sudo cp -R ./[TemplateName].xctemplate $tempDir
+sudo cp -R ./Templates/[TemplateName].xctemplate $tempDir
 ```
 
 Done. Now you can find your custom template in Xcode.<br>
@@ -75,11 +75,11 @@ Congratulations! 🎉🎉
 ## Template Usage
 ##### 1. File Template - ViperModule Template 
 
-![Usage](assets/ViperModuleUsage.gif)
+![Usage](Assets/ViperModuleUsage.gif)
 
 ##### 2. Project Template - TestApplication Template
 
-![Usage](assets/TestApplicationUsage.gif)
+![Usage](Assets/TestApplicationUsage.gif)
 
 
 
@@ -122,7 +122,7 @@ Add `sudo` like install_template if you want to remove a template within xcode a
 ```
 
 - ##### ScreenShot
-  ![remove via script](assets/remove_template.png)
+  ![remove via script](Assets/remove_template.png)
 
 ### 2. Manual
 
